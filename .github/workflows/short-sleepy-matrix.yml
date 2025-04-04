@@ -2,12 +2,15 @@ name: Short Sleepy Matrix
 run-name: Run short sleepy matrix on ${{ inputs.arc_name }}
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
     inputs:
       arc_name:
         description: "Target ARC name used for 'runs-on' in job"
         required: true
-        default: "poison-runner-set"
+        default: "arc-runner-set"
       delay:
         description: "How long to sleep in seconds"
         required: true
@@ -15,7 +18,7 @@ on:
 
 jobs:
   run-matrix:
-    runs-on: ${{ inputs.arc_name }}
+    runs-on: ${{ inputs.arc_name || 'arc-runner-set' }}
     strategy:
       fail-fast: false
       matrix:
