@@ -1,5 +1,5 @@
 name: Short Sleepy Matrix
-run-name: Run short sleepy matrix on ${{ inputs.arc_name }}
+run-name: Run short sleepy matrix on ${{ inputs.arc_name || 'arc-runner-set' }}
 
 on:
   push:
@@ -27,4 +27,4 @@ jobs:
       - name: simple
         run: |
           echo "Hello from: ${{ matrix.job }}"
-          sleep ${{ inputs.delay }}
+          sleep ${{ inputs.delay || '20' }}
