@@ -1,0 +1,35 @@
+name: dind self hsoted runner test
+run-name: Run  dind self hsoted runner test on ${{ inputs.arc_name || 'arc-runner-set' }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      arc_name:
+        description: "Target ARC name used for 'runs-on' in job"
+        required: true
+        default: "arc-runner-set-dind"
+
+jobs:
+  arc-runner-job:
+    runs-on: ${{ inputs.arc_name }}
+    # Service containers to run with `runner-job`
+    container: busybox
+    steps:
+      - name: Trials
+        run: |
+          echo "Hello World!" >> $GITHUB_STEP_SUMMARY
+          sleep 360
+        env:
+          # The hostname used to communicate with the Redis service container
+          REDIS_HOST: redis
+          # The default Redis port
+          REDIS_PORT: 6379
+    services:
+      # Label used to access the service container
+      redis:
+        # Docker Hub image
+        image: redis
+        #
+        ports:
+          # Opens tcp port 6379 on the host and service container
+          - 6379:6379
