@@ -7,7 +7,7 @@ on:
       arc_name:
         description: "Target ARC name used for 'runs-on' in job"
         required: true
-        default: "arc-runner-set-dindd"
+        default: "arc-runner-set-dind"
 
 jobs:
   arc-runner-job:
