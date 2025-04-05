@@ -1,5 +1,5 @@
 name: dind self hsoted runner test
-run-name: Run  dind self hsoted runner test on ${{ inputs.arc_name || 'arc-runner-set' }}
+run-name: Run  dind self hsoted runner test on ${{ inputs.arc_name || 'arc-runner-set-dind' }}
 
 on:
   workflow_dispatch:
