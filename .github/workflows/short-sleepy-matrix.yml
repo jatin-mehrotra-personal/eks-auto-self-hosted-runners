@@ -14,7 +14,7 @@ on:
       delay:
         description: "How long to sleep in seconds"
         required: true
-        default: "20"
+        default: "60"
 
 jobs:
   run-matrix:
@@ -27,4 +27,4 @@ jobs:
       - name: simple
         run: |
           echo "Hello from: ${{ matrix.job }}"
-          sleep ${{ inputs.delay || '20' }}
+          sleep ${{ inputs.delay || '60' }}
