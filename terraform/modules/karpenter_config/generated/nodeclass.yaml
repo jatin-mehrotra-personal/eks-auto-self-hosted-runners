@@ -1,0 +1,24 @@
+apiVersion: eks.amazonaws.com/v1
+kind: NodeClass
+metadata:
+  name: m7a-spot
+  labels:
+    app.kubernetes.io/managed-by: terraform
+spec:
+  # Use the role from parameters
+  role: m7a-spot-role
+  
+  # Use the security group from parameters
+  securityGroupSelectorTerms:
+    - id: sg-070966ca4271954b3
+  
+  # Use the subnets from parameters
+  subnetSelectorTerms:
+    - id: subnet-042e82de7c4d2165e
+    - id: subnet-0ff3327ae3681add8
+  
+  # Storage configuration from parameters
+  ephemeralStorage:
+    iops: 5000
+    size: 300Gi
+    throughput: 500

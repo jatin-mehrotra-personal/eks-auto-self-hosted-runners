@@ -1,0 +1,37 @@
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: m7a-spot
+spec:
+  template:
+    spec:
+      nodeClassRef:
+        group: eks.amazonaws.com
+        kind: NodeClass
+        name: m7a-spot
+
+      requirements:
+            - key: "eks.amazonaws.com/instance-category"
+              operator: In
+              values: ["m"]
+            - key: "eks.amazonaws.com/instance-family"
+              operator: In
+              values: ["m7a"]
+            - key: "eks.amazonaws.com/instance-cpu"
+              operator: In
+              values: ["8"]
+            - key: "topology.kubernetes.io/zone"
+              operator: In
+              values: ["us-east-1a", "us-east-1b"]
+            - key: "kubernetes.io/arch"
+              operator: In
+              values: ["amd64"]
+            - key: "karpenter.sh/capacity-type"
+              operator: In
+              values: ["spot"]
+
+  disruption:
+    consolidationPolicy: WhenEmpty
+    consolidateAfter: 5m
+  limits:
+    cpu: 1000
