@@ -12,6 +12,8 @@ This solution allows you to:
 
 ## Architecture
 
+![arch-image](../architecture/self-hosted-runner-eks-auto.png)
+
 The infrastructure consists of:
 - Amazon EKS cluster running in a custom VPC
 - GitHub Actions Runner Controller deployed via Helm
