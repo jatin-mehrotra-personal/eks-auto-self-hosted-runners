@@ -137,6 +137,19 @@ terraform destroy
 
 The repository includes a cleanup script (`scripts/cleanup-finalizers.sh`) that helps remove Kubernetes finalizers before destroying resources, ensuring a clean teardown.
 
+There will be a case where you will see the following terraform logs.
+
+```hcl
+module.arc.helm_release.arc_runner_set: Still destroying... [id=arc-runner-set, 3m40s elapsed]
+module.arc.helm_release.arc_runner_set_dind[0]: Still destroying... [id=arc-runner-set-dind, 3m40s elapsed]
+```
+
+In that case run start another terminal and run the following commands and you will see terraform destruction moving forward.
+
+```sh
+./scripts/cleanup-finalizers.sh arc-runners
+```
+
 ## Troubleshooting
 
 If you encounter issues with resources not being properly deleted during `terraform destroy`, you can manually run the cleanup script:
