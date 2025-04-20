@@ -45,7 +45,7 @@ locals {
 
 ### 2. Configure GitHub App Credentials
 
-1. Create a GitHub App following the [ARC documentation](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)
+1. Create a GitHub App following the [ARC Authenticating to the GitHub API](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#deploying-using-personal-access-token-classic-authentication)
 2. Create the following files in the `terraform/modules/arc/secrets` directory:
    - `github_app_id.txt` - Contains your GitHub App ID
    - `github_app_installation_id.txt` - Contains your GitHub App Installation ID
