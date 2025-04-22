@@ -1,6 +1,10 @@
-# EKS Auto-Scaling Self-Hosted GitHub Runners
+# Run GitHub Actions Self Hosted Runners on EKS Auto Mode
 
 This repository provides infrastructure as code (IaC) to deploy auto-scaling GitHub Actions self-hosted runners on Amazon EKS using GitHub's Actions Runner Controller (ARC).
+
+detailed blog: https://dev.to/aws-builders/cut-cicd-costs-by-77-2x-deployment-speed-with-github-actions-on-eks-auto-2ob2
+
+See it in action: https://www.youtube.com/live/s23QvNz2WuY?si=08n0qCVpMYC1qTKc
 
 ## Overview
 
