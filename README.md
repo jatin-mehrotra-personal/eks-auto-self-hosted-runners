@@ -54,7 +54,7 @@ locals {
    - `github_app_id.txt` - Contains your GitHub App ID
    - `github_app_installation_id.txt` - Contains your GitHub App Installation ID
    - `github_app_private_key.pem` - Contains your GitHub App private key
-   - `github_config_url.txt` - Contains your GitHub repository or organization URL (e.g., `https://github.com/your-org` or `https://github.com/your-org/your-repo`)
+   - `github_config_url.txt` - Contains your organization URL (e.g., `https://github.com/jatin-mehrotra-personal`)
 
 ### 3. Deploy the Infrastructure
 
@@ -65,15 +65,7 @@ terraform plan
 terraform apply
 ```
 
-### 4. Configure kubectl
-
-After the deployment is complete, configure kubectl to connect to your new EKS cluster:
-
-```bash
-aws eks update-kubeconfig --name eks-auto-self-runners --region us-east-1 --profile aws-test-admin
-```
-
-### 5. Verify the Deployment
+### 4. Verify the Deployment
 
 ```bash
 kubectl get pods -n arc-systems
